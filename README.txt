@@ -32,3 +32,4 @@ animate({left:"240px",height:"300px",opactiy:"0.5"})
 jquery的动画设置是以键值对的形式出现的
 animate中可以使用相关值得方法,例如在元素上设置了position：relative;动画中就可以加left或者top，如果有height或者width值，可以写成：height:"+=150px"
 动画中还可以使用预定义值：hiden show toggle  width:"toggle"
+stop()停止动画。
