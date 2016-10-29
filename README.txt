@@ -33,3 +33,26 @@ jquery的动画设置是以键值对的形式出现的
 animate中可以使用相关值得方法,例如在元素上设置了position：relative;动画中就可以加left或者top，如果有height或者width值，可以写成：height:"+=150px"
 动画中还可以使用预定义值：hiden show toggle  width:"toggle"
 stop()停止动画。
+
+对于find()与children()的区别
+find()可以找到父元素的所有子元素包括孙子元素，栗子：find("p:eq(0) span:last")
+而对于children()可以这样写children("p:eq(0)").children("sapn:last").
+
+关于jquery中的this，使用这个this可以限定选中范围
+栗子：
+	<div class="cont">
+		<span>1</span>
+		<span>2</span>
+		<span>3</span>
+	</div>
+	<div class="foo">
+		<span>1</span>
+		<span>2</span>
+		<span>3</span>
+	</div>	
+有两个div如果我想点击class="foo"中的span元素给它添加一个颜色值
+$(document).ready(function(){
+	$("div.foo").click(function(){
+             $('span',this).eq(1).addClass('blue');
+			});
+这个里面的this就是指向了foo中的span，如果去掉就会变成class=“cont”中的span了。
